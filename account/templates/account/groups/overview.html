@@ -37,7 +37,7 @@
 
 					<div class="card-action right-align">
 						<a href="{% url 'groups_detailed' group.pk %}">Detalhes</a>
-						<a href="#">Sair</a>
+						<a href="{% url 'groups_leave' group.pk %}" onclick="return confirm('Tem cerza que deseja sair deste grupo?')">Sair</a>
 					</div>
 				</div>
 			</div>

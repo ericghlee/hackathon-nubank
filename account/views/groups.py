@@ -50,6 +50,13 @@ def participate(request, pk):
     })
 
 
+def leave(request, pk):
+    group = get_object_or_404(Group, pk=pk)
+    group.cards.remove(*CreditCard.objects.filter(owner=request.user))
+    group.save()
+    return redirect('groups_overview')
+
+
 def add(request):
     form = GroupForm()
     if request.method == 'POST':
