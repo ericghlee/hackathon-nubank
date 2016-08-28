@@ -21,6 +21,7 @@ class CardSelectForm(forms.Form):
         super(CardSelectForm, self).__init__(*args, **kwargs)
 
         self.fields['card'] = forms.ChoiceField(
+            label="Usuário", 
             choices=[(o.id, str(o)) for o in CreditCard.objects.filter(owner=user)]
         )
 
