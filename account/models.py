@@ -65,6 +65,9 @@ class Group(models.Model):
         def get_users(self):
             return self.get_usr_set.all ()
 
+        def users(self):
+            return User.objects.filter(creditcard__group=self)
+
 
 class VirtualCard(models.Model):
 

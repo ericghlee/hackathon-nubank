@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from account.forms import GroupForm
+from account.forms import GroupForm, CardSelectForm
 from account.models import Group
 
 def overview(request):
@@ -8,7 +8,17 @@ def overview(request):
 
 def detailedview(request, pk):
     group = get_object_or_404(Group, pk=pk)
-    return render(request,'account/groups/detailedview.html', {"group" : group})
+
+    if request.method == 'POST':
+        form = CardSelectForm(request.POST, user=request.user)
+        if form.is_valid():
+            form.save()
+    else:
+        form = CardSelectForm(user=request.user)
+    return render(request,'account/groups/detailedview.html', {
+        "group" : group,
+        "form": form
+    })
 
 def add(request):
     form = GroupForm()
