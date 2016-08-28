@@ -7,12 +7,12 @@
 		{% for invitation in invitations %}
 			<div class="s12 m4 l3 col">
 				<div class="card">
-					<div class="card-content">
+					<div class="card-content orange darken-4">
 						<div class="card-title">
 							{{ invitation.group.name }}
 						</div>
 					</div>
-					<div class="card-action">
+					<div class="card-action orange darken-3">
 						<a href="{% url 'groups_participate' invitation.group.pk %}">Participar</a>
 					</div>
 				</div>
