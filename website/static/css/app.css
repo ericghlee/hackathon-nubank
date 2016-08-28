@@ -3554,7 +3554,7 @@ ul.staggered-list li {
 footer.page-footer {
   margin-top: 20px;
   padding-top: 20px;
-  background-color: #1B5E20;
+  background-color: #4caf50;
 }
 /* line 355, ../bower_components/materialize/sass/components/_global.scss */
 footer.page-footer .footer-copyright {
@@ -9330,4 +9330,14 @@ main {
 
 .logo-image {
   height: 60px;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
 }
