@@ -7,24 +7,26 @@
             <div class="card">
                 <div class="white-text orange darken-1">
                     <div class="card-content right-align">
-                        <span class="card-title">Card Title</span>
+                        <span class="card-title">Bandeira</span>
                     </div>
                     <div class="card-content white-text">
-                        <h5>card.get_credit_card_number()</h5>
+                        <h5>{{ card.get_credit_card_number }}</h5>
                     </div>
                 </div>
                 <div class="card-action white-text right-align orange darken-3">
-                    <a href="#">Editar</a>
-                    <a href="#">Remover</a>
+                    <a href="{% url 'card_remove' card.pk %}" onclick="return confirm('Tem certeza que deseja remover este cartão?')">
+						<i class="material-icons">delete</i>
+						Remover
+					</a>
                 </div>
             </div>
         </div>
     {% endfor %}
+	<div class="col s12 m2">
+		<a href="{% url 'card_add' %}" class="waves-effect waves-light btn-large btn-add">
+			<i class="large material-icons">add</i>
+		</a>
+	</div>
 
-    <div class="fixed-action-btn" style="bottom: 50px; right: 50px;">
-        <a class="btn-floating btn-large red">
-            <i class="large material-icons">add</i>
-        </a>
-    </div>
 </div>
 {% endblock %}

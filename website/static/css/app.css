@@ -9322,3 +9322,8 @@ body {
 main {
   color: #e0e0e0;
 }
+
+/* line 7, ../sass/_base.scss */
+.btn-add {
+  background-color: #424242;
+}

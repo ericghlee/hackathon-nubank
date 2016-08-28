@@ -1,8 +1,9 @@
 from django.core.validators import RegexValidator
 from django.db import models
 from website.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
-# Create your models here.
+
 class CreditCard(models.Model):
 
     number = models.CharField(
@@ -17,7 +18,20 @@ class CreditCard(models.Model):
         max_length=255
     )
 
-    expiration_date = models.DateField('Data de validade')
+    expiration_date_month = models.SmallIntegerField(
+        'Mês de Vencimento',
+        validators=[
+            MaxValueValidator(12),
+            MinValueValidator(1)
+        ]
+    )
+    expiration_date_year = models.SmallIntegerField(
+        'Ano de Vencimento',
+        validators=[
+            MaxValueValidator(99),
+            MinValueValidator(0)
+        ]
+    )
 
     verification_code = models.SmallIntegerField('Código de segurança')
 

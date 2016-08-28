@@ -9,4 +9,14 @@ urlpatterns = [
         cards.cards,
         name='card_index'
     ),
+    url(
+        r'^add/$',
+        cards.cards_add,
+        name='card_add'
+    ),
+    url(
+        r'^delete/(\d+)$',
+        cards.cards_remove,
+        name='card_remove'
+    ),
 ]
