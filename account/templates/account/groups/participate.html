@@ -1,0 +1,28 @@
+{% extends "website/base.html" %}
+{% block content %}
+	<h1>Participar do grupo</h1>
+<div class="card">
+    <div class="card-content">
+		<div class="card-title">{{ group.name }}</div>
+		<ul>
+			{% for user in group.users %}
+				<li><a class="grey-text text-lighten-3" href="#!">{{ user.full_name }}</a></li>
+			{% endfor %}
+		</ul>
+    </div>
+</div>
+<form method="post">
+	{% csrf_token %}
+	{% include "renders/render_form.html" %}
+	<button type="submit" class="btn">Participar</button>
+</form>
+    
+{% endblock %}
+
+{% block extrajs %}
+	<script>
+	$(document).ready(function() {
+		$('select').material_select();
+	});
+	</script>
+{% endblock %}

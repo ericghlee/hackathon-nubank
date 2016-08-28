@@ -83,3 +83,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_short_name(self):
         return self.email
+
+    def groups(self):
+        from account.models import Group
+        return Group.objects.filter(cards__owner=self)

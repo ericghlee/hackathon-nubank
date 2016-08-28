@@ -2,24 +2,26 @@
 {% block content %}
 	<h4>Meus grupos</h4>
 	<div class="row">
-        {% for groups in group %}
-            <div class="card blue-grey darken-1 col l6 m6 s12">
-                <div class="card-content white-text">
-                    <span class="card-title">Grupo do Netflix</span>
-                    <span class="new badge" data-badge-caption="Ativo"></span>
-                    <h5 class="white-text">Membros</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Eu Mesmo</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Fulano de Tal</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Cliclano de Lal</a></li>
-                    </ul>
-                </div>
+        {% for group in groups %}
+			<div class="col m6 s12">
+				<div class="card blue-grey darken-1">
+					<div class="card-content white-text">
+						<span class="card-title">Grupo do Netflix</span>
+						<span class="new badge" data-badge-caption="Ativo"></span>
+						<h5 class="white-text">Membros</h5>
+						<ul>
+							{% for user in group.users %}
+								<li><a class="grey-text text-lighten-3" href="#!">{{ user.full_name }}</a></li>
+							{% endfor %}
+						</ul>
+					</div>
 
-                <div class="card-action right-align">
-                    <a href="{% url 'groups_detailed' group.pk %}">Detalhes</a>
-                    <a href="#">Sair</a>
-                </div>
-            </div>
+					<div class="card-action right-align">
+						<a href="{% url 'groups_detailed' group.pk %}">Detalhes</a>
+						<a href="#">Sair</a>
+					</div>
+				</div>
+			</div>
         {% endfor %}
         <div class="col s12 m2">
             <a href="{% url 'groups_add' %}" class="waves-effect waves-light btn-large btn-add">

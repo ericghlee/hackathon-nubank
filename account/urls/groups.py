@@ -15,6 +15,11 @@ urlpatterns = [
         name='groups_detailed'
     ),
     url(
+        r'^participate/(\d+)$',
+        groups.participate,
+        name='groups_participate'
+    ),
+    url(
         r'^add/$',
         groups.add,
         name='groups_add'
