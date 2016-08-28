@@ -43,6 +43,9 @@ class CreditCard(models.Model):
     def get_owner(self):
         return self.owner
 
+    def __str__(self):
+        return self.get_credit_card_number()
+
 
 class Group(models.Model):
 
@@ -51,7 +54,10 @@ class Group(models.Model):
             max_length=255
             )
 
-        cards = models.ManyToManyField (CreditCard)
+        cards = models.ManyToManyField(
+            CreditCard,
+            blank=True,
+        )
 
         def get_name(self):
             return self.name

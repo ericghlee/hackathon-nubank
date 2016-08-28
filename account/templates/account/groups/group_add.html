@@ -1,0 +1,22 @@
+{% extends "website/base.html" %}
+{% block content %}
+
+<div class="row">
+	<div class="s12 m8 offset-m2 col">
+		<form method="post">
+			{% csrf_token %}
+			<h4>Criar grupo</h4>
+			{% include 'renders/render_form.html' %}
+			<button type="submit" class="btn right">Salvar</button>
+		</form>
+	</div>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+	<script>
+	$(document).ready(function() {
+		$('select').material_select();
+	});
+	</script>
+{% endblock %}

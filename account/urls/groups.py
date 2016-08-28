@@ -14,5 +14,10 @@ urlpatterns = [
         groups.detailedview,
         name='groups_detailed'
     ),
+    url(
+        r'^add/$',
+        groups.add,
+        name='groups_add'
+    ),
 ]
 
