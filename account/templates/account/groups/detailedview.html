@@ -1,52 +1,41 @@
 {% extends "website/base.html" %}
 {% block content %}
-<div class="container">
-    
-    <div class="row">
-        <div class="col s12"></div>
-    </div>
-   <h5 class="header left-align grey-text">Nome do Grupo</h5>
-   <hr color="grey" width="100%" size="5" align="rigth">
-   <div class="row">
-       <div class="col s8 ">
-           <div class="card">
-               <div class="white-text orange darken-1">
-                   <div class="card-content">
-                       <div class="grey-text"><h6>Numero: <h6> </div>
-                       <div class="white-text"><h5>111111111111111111111</h5> </div>
-                   </div>
-               </div>
-               <div class="card-action white-text right-align orange darken-3">
-               </div>
-           </div>
-       </div>
-   </div>
 
-
-
+<div class="row">
+    <div class="col s12"></div>
 </div>
-<div class="card">
-    <div class="card-content">
-		<div class="card-title">{{ group.name }}</div>
-		<ul>
-			{% for user in group.users %}
-				<li><a class="grey-text text-lighten-3" href="#!">Eu Mesmo</a></li>
-			{% endfor %}
-		</ul>
+<h5 class="header left-align grey-text">Nome do Grupo</h5>
+<hr color="grey" width="100%" size="5" align="rigth">
+<div class="row">
+    <div class="col s6 ">
+        <div class="card">
+            <div class="white-text orange darken-1">
+                <div class="card-content">
+                    <div class="yellow-text"><h6>Numero: <h6> </div>
+                    <div class="white-text"><h5>111111111111111111111</h5> </div>
+                </div>
+                <div class="card-content">
+                    <div class="yellow-text"><h6>Nome: <h6> </div>
+                    <div class="white-text"><h5>Seu Nome</h5> </div>
+                </div>
+
+                <div class="row">
+                    <div class="s4">
+                        <div class="card-content">
+                            <div class="yellow-text"><h6>Valid Thru: <h6> </div>
+                            <div class="white-text"><h5>11/22</h5> </div>
+                        </div>
+                    </div>
+                    <div class="s8">
+                        <div class="card-content">
+                            <div class="yellow-text"><h6>Valid Thru: <h6> </div>
+                            <div class="white-text"><h5>11/22</h5> </div>
+                        </div>
+                    </div>
+
+            </div>
+            <div class="card-action white-text right-align orange darken-3"></div>
+        </div>
     </div>
 </div>
-	<form>
-	{% include "renders/render_form.html" %}
-	<button type="submit" class="btn">Participar</button>
-	</form>
-    
-{% endblock %}
-
-
-{% block extrajs %}
-	<script>
-	$(document).ready(function() {
-		$('select').material_select();
-	});
-	</script>
 {% endblock %}
