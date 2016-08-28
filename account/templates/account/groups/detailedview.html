@@ -42,7 +42,7 @@
                 <div class="card-content">
                     <h5>Usuários</h5>
                     {% for user in group.users %}
-                    <li><a class="grey-text text-lighten-3" href="#!">{{ user.get_full_name }}</a></li>
+                    <li><span class="grey-text text-lighten-3">{{ user.get_full_name }}</span></li>
                     {% endfor %}
                 </div>
             </div>
