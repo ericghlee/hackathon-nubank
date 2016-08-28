@@ -1,0 +1,19 @@
+{% extends "website/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+	<div class="row">
+		<div class="l6 offset-l3 s12 col">
+			<div class="card">
+				<div class="card-content">
+					<div class="card-title">Logout</div>
+					Até mais! E obrigado pelos peixes!
+				</div>
+				<div class="card-action">
+					<a href="{% url 'website_home' %}">Voltar</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

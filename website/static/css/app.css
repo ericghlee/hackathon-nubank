@@ -5242,14 +5242,14 @@ small {
   padding: 20px;
   margin: 0.5rem 0 1rem 0;
   border-radius: 2px;
-  background-color: #fff;
+  background-color: #1B5E20;
 }
 
 /* line 12, ../bower_components/materialize/sass/components/_cards.scss */
 .card {
   position: relative;
   margin: 0.5rem 0 1rem 0;
-  background-color: #fff;
+  background-color: #1B5E20;
   transition: box-shadow .25s;
   border-radius: 2px;
 }
@@ -5359,7 +5359,7 @@ small {
 }
 /* line 130, ../bower_components/materialize/sass/components/_cards.scss */
 .card .card-image .card-title {
-  color: #fff;
+  color: #1B5E20;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -5401,7 +5401,7 @@ small {
 .card .card-reveal {
   padding: 20px;
   position: absolute;
-  background-color: #fff;
+  background-color: #1B5E20;
   width: 100%;
   overflow-y: auto;
   top: 100%;
