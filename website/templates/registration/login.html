@@ -1,0 +1,29 @@
+{% extends "website/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+	<div class="row container">
+		<div class="l6 offset-l3 s12 col">
+			<h4>Entrar</h4>
+			<form method="post" action="">
+				{% csrf_token %}
+				{{ form.non_field_errors }}
+				{% include 'renders/render_form.html'  %}
+
+				<button class="btn waves-effect waves-light" type="submit">{% trans "Entrar" %}</button>
+
+				<div class="row">
+					<div class="col s12">
+						<a class="btn-flat right waves-effect waves-teal" href="{% url "password_reset" %}">{% trans "Esqueceu a senha?" %}</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+						<a class="btn-flat right waves-effect waves-teal" href="#">Não tem conta? Cadastre-se</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}
