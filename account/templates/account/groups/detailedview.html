@@ -1,7 +1,15 @@
 {% extends "website/base.html" %}
 {% block content %}
 <div class="container">
-    <h4>Nome do Grupo<h4>
+    <div class="row">
+        <h4>{% group.get_name()%}<h4>
+            <div class="col s8">
+                <a href="{% url 'groups_detailed' group.pk %}">
+                </a>
+            </div>
+            <div class="col s4"></div>
+    </div>
+                                                
 </div>
     
 {% endblock %}
