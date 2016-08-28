@@ -10,7 +10,7 @@ urlpatterns = [
         name='groups_overview'
     ),
     url(
-        r'^detailed/$'
+        r'^detailed/$',
         groups.detailedview,
         name='groups_detailed'
     ),

@@ -15,7 +15,7 @@
         <div class="nav-wrapper">
             <div class="container">
                 {% block page_title %}
-                <a href="{% url "website_home" %}"  class="brand-logo"><i class="material-icons">credit_card</i>Co-Card</a>
+                <a href="{% url 'website_home' %}"><img class="logo-image" src="{% static 'images/logo.png' %}"></a>
                 {% endblock %}
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">

@@ -9323,7 +9323,13 @@ main {
   color: #e0e0e0;
 }
 
+<<<<<<< Updated upstream
 /* line 7, ../sass/_base.scss */
 .btn-add {
   background-color: #424242;
 }
+=======
+.logo-image {
+  height: 60px;
+}
+>>>>>>> Stashed changes
