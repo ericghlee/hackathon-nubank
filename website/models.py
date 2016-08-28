@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from website.utils.validators import validate_cpf
 
 
@@ -27,12 +27,14 @@ class UserManager(BaseUserManager):
 
     def create_superuser(self, email, full_name, cpf, password=None):
         user = self.create_user(email, full_name, cpf, password)
+        user.is_admin = True
+        user.is_staff = True
         user.is_superuser = True
         user.save(using=self._db)
         return user
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
         'Email',
         max_length=254,
@@ -57,6 +59,10 @@ class User(AbstractBaseUser):
         blank=True,
         null=True
     )
+    # campos django-admin
+    is_active = models.BooleanField('Ativo', default=True)
+    is_admin = models.BooleanField('Administrador', default=False)
+    is_staff = models.BooleanField('Organização', default=False)
     # campos que o django-cms exige
     first_name = models.CharField(max_length=64, blank=True)
     last_name = models.CharField(max_length=64, blank=True)

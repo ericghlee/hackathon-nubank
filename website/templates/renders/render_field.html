@@ -1,0 +1,55 @@
+{% comment %}
+	Use as:
+	{% include 'renders/render_field.html' with field=field_name only %}
+	or
+	{% include 'renders/render_field.html' with class='s12 m8 l6' only %}
+
+	Arguments:
+	[field] required -> field object
+	[put_row] optional -> If the field will be wrapped by a <div class="row">...</div>
+	[open_row] optional -> If the field will be preceded by a <div class="row">
+	[open_row] optional -> If the field will be succeeded by a </div>
+	[class] optional -> Custom classes to add on the div around the input. 'input-field col' will always be added.
+{% endcomment %}
+
+{% load custom %}
+
+{% if hidden %}
+	{{ field }}
+{% else %}
+
+	{% if put_row|default_if_none:True or open_row %}<div class="row{% if no_gap|default_if_none:False %} no-gap{% endif %}">{% endif %}
+	<div class="input-field col {% if class %}{{class}}{% else%}s12{% endif %} {% if field.errors %}invalid{% endif %} {% if field|is_file_field %}file-field{% endif %}">
+		{% if not field|is_file_field %}
+			{{ field }}
+			{{ field.label_tag }}
+			{% if field.help_text %} <span class="helptext">{{ field.help_text|safe }}</span> {% endif %}
+			{% if field.errors %}<div class="tooltip">{% for e in field.errors %}{{e}}<br>{% endfor %}</div>{% endif %}
+		{% else %}
+			<div class="row"><div class="s12 col" style="margin-bottom: 2rem">
+			{{ field.initial_text}}
+			{{ field.input_text}}
+			{{ field.attrs}}
+			</div></div>
+			<div class="btn">
+				<span><i class="material-icons">assignment</i> Arquivo</span>
+				<input id="{{ field.id_for_label }}" name="{{ field.html_name }}" type="file">
+{#				{{ field }}#}
+			</div>
+			<div class="file-path-wrapper">
+				<input class="file-path validate" type="text">
+				{% if field.help_text %}
+					<span class="helptext">{{ field.help_text|safe }}</span>
+				{% endif %}
+				{% if field.errors %}
+					<div class="tooltip">
+					{% for e in field.errors %}{{e}}<br>
+					{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+	</div>
+	{% if put_row|default_if_none:True or close_row %}</div>{% endif %}
+
+{% endif %}
