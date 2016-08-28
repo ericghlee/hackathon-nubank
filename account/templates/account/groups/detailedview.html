@@ -1,83 +1,55 @@
 {% extends "website/base.html" %}
 {% block content %}
-<<<<<<< Updated upstream
+
 <div class="row">
     <div class="col s12"></div>
 </div>
-<h5 class="header left-align grey-text">Nome do Grupo</h5>
+<h5 class="header left-align grey-text">{{ group.get_name}}</h5>
 <hr color="grey" width="100%" size="5" align="rigth">
 <div class="row">
     <div class="col s6 ">
         <div class="card">
-            <div class="white-text orange darken-1">
+            <div class="white-text purple darken-1">
                 <div class="card-content">
-                    <div class="yellow-text"><h6>Numero: <h6> </div>
-                    <div class="white-text"><h5>111111111111111111111</h5> </div>
+                    <div class="yellow-text"><h6>Numero: </h6> </div>
+                    <div class="white-text"><h5>{{virtual_card.card_number}}</h5> </div>
                 </div>
                 <div class="card-content">
                     <div class="row">
-                        <div class="col s4">
-                            <div class="yellow-text"><h6>Nome: <h6> </div>
-                            <div class="white-text"><h5>Seu Nome</h5> </div>
+                        <div class="col s6">
+                            <div class="yellow-text"><h6>Nome: </h6> </div>
+                            <div class="white-text"><h5>{{virtual_card.name}}</h5> </div>
                         </div>
 
-                        <div class="col s4">
-                            <div class="yellow-text"><h6>Valid Thru: <h6> </div>
-                            <div class="white-text"><h5>11/22</h5> </div>
+                        <div class="col s3">
+                            <div class="yellow-text"><h6>Valid Thru: </h6> </div>
+                            <div class="white-text"><h5>{{virtual_card.expiration_month}}/{{virtual_card.expiration_year}}</h5> </div>
                         </div>
 
-                        <div class="col s4">
-                            <div class="yellow-text"><h6>CVV: <h6> </div>
-                            <div class="white-text"><h5>123</h5> </div>
+                        <div class="col s3">
+                            <div class="yellow-text"><h6>CVV: </h6> </div>
+                            <div class="white-text"><h5>{{virtual_card.security_code}}</h5> </div>
                         </div>
                     </div>
                 </div>
-            <div class="card-action white-text right-align orange darken-3"></div>
+
+                <div class="card-action white-text right-align purple darken-3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col s6">
+        <div class="card">
+            <div class="teal darken-3">
+                <div class="card-content">
+                    <h5>Usuários</h5>
+                    {% for user in group.users %}
+                    <li><a class="grey-text text-lighten-3" href="#!">{{ user.get_full_name }}</a></li>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="card-action right-align teal darken-4">
+            </div>
         </div>
     </div>
 </div>
 {% endblock %}
-=======
-<div class="container">
-    
-    <div class="row">
-        <div class="col s12"></div>
-    </div>
-   <h5 class="header left-align grey-text">Nome do Grupo</h5>
-   <hr color="grey" width="100%" size="5" align="rigth">
-   <div class="row">
-       <div class="col s6 ">
-           <div class="card">
-               <div class="white-text purple darken-1">
-                   <div class="card-content">
-                       <div class="white-text"><h5>Número: <h5> </div>
-                       <div class="white-text"><h5>111111111111111111111</h5> </div>
-                   </div>
-               </div>
-               <div class="card-action white-text right-align purple darken-3">
-               </div>
-           </div>
-       </div>
-       <div class="col s6">
-           <div class="card">
-                <div class="teal darken-3">
-                    <div class="card-content">
-                        <h5>Usuários</h5>
-                        {% for user in group.users %}
-                            <li><a class="grey-text text-lighten-3" href="#!">{{ user.get_full_name }}</a></li>
-                        {% endfor %}
-                        <li><a class="grey-text text-lighten-3" href="#!">Eu Mesmo</a></li>
-                    </div>
-                </div>
-                <div class="card-action right-align teal darken-4">
-                </div>
-           </div>
-       </div>
-   </div>
-
-</div>
-
-{% endblock %}
-
-
->>>>>>> Stashed changes

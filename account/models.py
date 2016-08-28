@@ -63,7 +63,7 @@ class Group(models.Model):
             return self.name
 
         def get_users(self):
-            return self.get_usr_set.all ()
+            return self.get_usr_set.all()
 
         def users(self):
             return User.objects.filter(creditcard__group=self)
