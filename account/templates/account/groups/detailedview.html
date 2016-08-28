@@ -2,12 +2,11 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <h4>{% group.get_name()%}<h4>
-            <div class="col s8">
-                <a href="{% url 'groups_detailed' group.pk %}">
-                </a>
-            </div>
-            <div class="col s4"></div>
+        <div class="col s8">
+            <a href="{% url 'groups_detailed' group.pk %}">
+            </a>
+        </div>
+        <div class="col s4"></div>
     </div>
                                                 
 </div>
