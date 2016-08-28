@@ -23,6 +23,7 @@
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     {% if user.is_authenticated %}
+                    <li><a href="#"><i class="material-icons left">account_circle</i>Minha Conta</a></li>
                     <li><a href="{% url "card_index" %}"><i class="material-icons left">credit_card</i>Meus Cartões</a></li>
                     <li><a href="{% url "groups_overview" %}"><i class="material-icons left">group_work</i>Grupos</a></li>
                     <li><a href="{% url "logout" %}"><i class="material-icons left">account_circle</i>Log Out</a></li>
@@ -35,6 +36,7 @@
         </nav>
         <ul class="side-nav" id="mobile-demo">
             {% if user.is_authenticated %}
+            <li><a href="#"><i class="material-icons left">account_circle</i>Minha Conta</a></li>
             <li><a href="{% url "card_index" %}"><i class="material-icons left">credit_card</i>Meus Cartões</a></li>
             <li><a href="{% url "groups_overview" %}"><i class="material-icons left">group_work</i>Grupos</a></li>
             <li><a href="{% url "logout" %}"><i class="material-icons left">account_circle</i>Log Out</a></li>

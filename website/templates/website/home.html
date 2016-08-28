@@ -23,6 +23,7 @@
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     {% if user.is_authenticated %}
+                    <li><a href="#"><i class="material-icons left">account_circle</i>Minha Conta</a></li>
                     <li><a href="{% url "card_index" %}"><i class="material-icons left">credit_card</i>Meus Cartões</a></li>
                     <li><a href="{% url "groups_overview" %}"><i class="material-icons left">group_work</i>Grupos</a></li>
                     <li><a href="{% url "logout" %}"><i class="material-icons left">account_circle</i>Log Out</a></li>
@@ -35,6 +36,7 @@
         </nav>
         <ul class="side-nav" id="mobile-demo">
             {% if user.is_authenticated %}
+            <li><a href="#"><i class="material-icons left">account_circle</i>Minha Conta</a></li>
             <li><a href="{% url "card_index" %}"><i class="material-icons left">credit_card</i>Meus Cartões</a></li>
             <li><a href="{% url "groups_overview" %}"><i class="material-icons left">group_work</i>Grupos</a></li>
             <li><a href="{% url "logout" %}"><i class="material-icons left">account_circle</i>Log Out</a></li>
@@ -48,7 +50,9 @@
 				<h4 class="center-align" style="font-family: 'Baloo Paaji', cursive; margin-top:160px;">Apresentamos o co-card.</h4><br><br>
 				<h5 class="center-align" style="font-family: 'Quicksand', sans-serif; margin-top: 20px;">A união da economia, praticidade e segurança. </h5><br><br>
 				<div class="row center">
-					<a href="http://materializecss.com/getting-started.html" id="download-button" class="left-align btn-large waves-effect waves-light orange">Cadastre-se</a>
+                                    {% if not user.is_authenticated %}
+					<a href="#" id="download-button" class="left-align btn-large waves-effect waves-light orange">Cadastre-se</a>
+                                    {% endif %}
 				</div>
 			</div>
 			<div class="col s12 m7"><img style="width: 100%;" src="{% static 'images/home.jpg' %}"></div>
