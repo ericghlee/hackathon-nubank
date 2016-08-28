@@ -87,3 +87,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     def groups(self):
         from account.models import Group
         return Group.objects.filter(cards__owner=self)
+
+    def __str__(self):
+        return self.full_name
