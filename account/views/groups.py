@@ -57,6 +57,12 @@ def leave(request, pk):
     return redirect('groups_overview')
 
 
+def refuse(request, pk):
+    group = get_object_or_404(Group, pk=pk)
+    Invitation.objects.filter(user=request.user, group=group).delete()
+    return redirect('groups_overview')
+
+
 def add(request):
     form = GroupForm()
     if request.method == 'POST':

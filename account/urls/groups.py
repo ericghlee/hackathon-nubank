@@ -20,6 +20,11 @@ urlpatterns = [
         name='groups_participate'
     ),
     url(
+        r'^refuse/(\d+)$',
+        groups.refuse,
+        name='groups_refuse'
+    ),
+    url(
         r'^leave/(\d+)$',
         groups.leave,
         name='groups_leave'
