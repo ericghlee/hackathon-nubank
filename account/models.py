@@ -78,7 +78,6 @@ class VirtualCard(models.Model):
             RegexValidator(regex='\d{16}')
         ])
 
-            
     full_name = models.CharField(
                 'Nome completo',
                 max_length=255
@@ -94,6 +93,6 @@ class VirtualCard(models.Model):
         return self.number
 
 
-
-
-
+class Invitation(models.Model):
+    user = models.ForeignKey(User)
+    group = models.ForeignKey(Group)

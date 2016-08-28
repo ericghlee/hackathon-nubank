@@ -1,9 +1,16 @@
 body {
   background-color: $body-bg;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 main {
   color: $text-color;
+  flex: 1 0 auto;
 }
 .btn-add {
   background-color: $button-add-bg;
+}
+.logo-image {
+  height: 60px;
 }

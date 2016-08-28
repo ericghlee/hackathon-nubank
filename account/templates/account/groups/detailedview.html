@@ -4,7 +4,7 @@
     <div class="col s12"></div>
 </div>
 <h5 class="header left-align grey-text">Nome do Grupo</h5>
-<hr color="grey" width="100%" size="5" align="rigth">
+<hr color="grey" width="100%" size="5" align="right">
 <div class="row">
     <div class="col s6 ">
         <div class="card">
@@ -31,8 +31,24 @@
                         </div>
                     </div>
                 </div>
+			</div>
             <div class="card-action white-text right-align orange darken-3"></div>
         </div>
     </div>
 </div>
+<div class="row">
+	<form method="post">
+		{% csrf_token %}
+		{% include "renders/render_form.html" with form=invitationForm only %}
+		<button type="submit" class="btn right">Convidar</button>
+	</form>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+	<script>
+	$(document).ready(function() {
+		$('select').material_select();
+	});
+	</script>
 {% endblock %}

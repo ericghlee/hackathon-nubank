@@ -1,5 +1,25 @@
 {% extends "website/base.html" %}
 {% block content %}
+	{% if invitations %}
+		<h4>Meus convites</h4>
+	{% endif %}
+	<div class="row">
+		{% for invitation in invitations %}
+			<div class="s12 m4 l3 col">
+				<div class="card">
+					<div class="card-content">
+						<div class="card-title">
+							{{ invitation.group.name }}
+						</div>
+					</div>
+					<div class="card-action">
+						<a href="{% url 'groups_participate' invitation.group.pk %}">Participar</a>
+					</div>
+				</div>
+			</div>
+
+		{% endfor %}
+	</div>
 	<h4>Meus grupos</h4>
 	<div class="row">
         {% for group in groups %}

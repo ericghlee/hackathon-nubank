@@ -1,5 +1,5 @@
 from django import forms
-from account.models import CreditCard, Group
+from account.models import CreditCard, Group, Invitation
 
 
 class CreditCardForm(forms.ModelForm):
@@ -23,3 +23,9 @@ class CardSelectForm(forms.Form):
         self.fields['card'] = forms.ChoiceField(
             choices=[(o.id, str(o)) for o in CreditCard.objects.filter(owner=user)]
         )
+
+
+class InvitationForm(forms.ModelForm):
+    class Meta:
+        model = Invitation
+        fields = ['user']
