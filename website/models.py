@@ -4,7 +4,7 @@ from website.utils.validators import validate_cpf
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, full_name, cpf, password=None):
+    def create_user(self, username, email, full_name, cpf, password=None):
         if not email:
             msg = 'Entre com um endereço de email'
             raise ValueError(msg)
@@ -20,13 +20,13 @@ class UserManager(BaseUserManager):
             last_name=full_name.split(None, 1)[1:],
             cpf=cpf
         )
-
+        user.username = username
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, full_name, cpf, password=None):
-        user = self.create_user(email, full_name, cpf, password)
+    def create_superuser(self, username, email, full_name, cpf, password=None):
+        user = self.create_user(username, email, full_name, cpf, password)
         user.is_admin = True
         user.is_staff = True
         user.is_superuser = True
@@ -41,7 +41,10 @@ class User(AbstractBaseUser, PermissionsMixin):
         unique=True,
         db_index=True
     )
-
+    username = models.CharField(
+        'Username',
+        max_length=255
+    )
     full_name = models.CharField(
         'Nome completo',
         max_length=255
