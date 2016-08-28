@@ -9,5 +9,10 @@ urlpatterns = [
         groups.overview,
         name='groups_overview'
     ),
+    url(
+        r'^detailed/$'
+        groups.detailedview,
+        name='groups_detailed'
+    ),
 ]
 
