@@ -102,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'website.User'
-LOGIN_REDIRECT_URL = '/account/grupos'
+LOGIN_REDIRECT_URL = '/account/groups'
 LOGIN_URL = '/account/login'
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
