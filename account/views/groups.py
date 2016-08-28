@@ -1,14 +1,14 @@
 from django.shortcuts import render, redirect
 from account.forms import GroupForm
-
+from account.models import Group
 
 def overview(request):
-    return render(request,'account/groups/overview.html',{})
+    groups = Group.objects.filter(cards__in=request.user.creditcard_set.all())
+    return render(request,'account/groups/overview.html',{"groups" : groups})
 
-
-def detailedview(request):
-    return render(request,'account/groups/detailedview.html', {})
-
+def detailedview(request, pk):
+    group = get_object_or_404(Group, pk=pk)
+    return render(request,'account/groups/detailedview.html', {"group" : group})
 
 def add(request):
     form = GroupForm()
