@@ -21,9 +21,13 @@ def detailedview(request, pk):
             invitationForm.save()
     else:
         invitationForm = InvitationForm()
+
+    virtual_card = VirtualCard()
+
     return render(request,'account/groups/detailedview.html', {
         "group": group,
-        'invitationForm': invitationForm
+        'invitationForm': invitationForm,
+        "virtual_card": virtual_card
     })
 
 
@@ -56,3 +60,18 @@ def add(request):
     else:
         form = GroupForm()
     return render(request, 'account/groups/group_add.html', {'form': form})
+
+class VirtualCard:
+    card_number = ""
+    expiration_month = ""
+    expiration_year = ""
+    security_code = ""
+    name = ""
+
+    def __init__(self):
+        self.card_number = "1234 4567 1234 4567"
+        self.expiration_month = "11"
+        self.expiration_year = "20"
+        self.security_code = "123"
+        self.name = "Virtual CO-CARD"
+
